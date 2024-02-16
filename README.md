@@ -7,12 +7,15 @@ Simple CLI script for analyze usage space and compress your btrfs partition
 For working your system must have a package compsize and git
 
 Arch Linux & derivatives
+
 ```pacman -S compsize git```
 
 Debian/Ubuntu & derivatives
+
 ```apt get install compsize git```
 
 Fedora
+
 ```dnf install compsize git```
 
 Clone repo

@@ -1,2 +1,2 @@
-# btrfs_cli_compress
+# CLI Compres BTRFS
 Simple CLI for compress btrfs

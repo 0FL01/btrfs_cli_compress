@@ -4,7 +4,7 @@ Simple CLI script for analyze usage space and compress your btrfs partition
 
 # Installing
 
-For working your system must have a package compsize and git
+For working on your system must have a package compsize and git
 
 Arch Linux & derivatives
 

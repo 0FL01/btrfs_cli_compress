@@ -22,11 +22,13 @@ Clone repo
 
 ```git clone https://github.com/0fl01/btrfs_cli_compress.git```
 
+
 # Usage
 
 Go to cloned script
 
 ```cd btrfs_cli_compress/```
+
 
 Launch script
 

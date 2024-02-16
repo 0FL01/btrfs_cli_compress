@@ -25,7 +25,9 @@ Clone repo
 # Usage
 
 Go to cloned script
+
 ```cd btrfs_cli_compress/```
 
 Launch script
+
 ```bash btrfs_simple.sh```

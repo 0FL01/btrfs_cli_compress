@@ -1,4 +1,4 @@
-# CLI Compress and check usage space partition BTRFS
+# CLI Compress and check usage space partition on BTRFS
 Simple CLI script for analyze usage space and compress your btrfs partition
 
 

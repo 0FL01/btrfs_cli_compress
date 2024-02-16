@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Функция для сжатия файловой системы Btrfs с использованием алгоритма Zstd и вывода прогресса
+# features for compression Btrfs with using Zstd and view progress
 compress_with_zstd() {
     read -p "Enter the path to compress: " path
     if [ -n "$path" ]; then
@@ -13,7 +13,7 @@ compress_with_zstd() {
     fi
 }
 
-# Функция для анализа занятости раздела с помощью compsize
+# Features analyzing space usage on disk compsize
 analyze_disk_space() {
     read -p "Enter the path to analyze disk space: " path
     if [ -n "$path" ]; then
@@ -24,7 +24,7 @@ analyze_disk_space() {
     fi
 }
 
-# Главное меню
+# Main menu
 main_menu() {
     while true; do
         echo "Choose an option:"
@@ -42,5 +42,5 @@ main_menu() {
     done
 }
 
-# Запуск главного меню
+# Launch main menu
 main_menu

@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# features for compression Btrfs with using Zstd and view progress
+# Function for compressing the Btrfs filesystem using the Zstd algorithm with a progress message
 compress_with_zstd() {
+    echo "Choose a path to compress:"
     read -p "Enter the path to compress: " path
     if [ -n "$path" ]; then
         echo "Compression in progress, please wait..."
@@ -13,34 +14,66 @@ compress_with_zstd() {
     fi
 }
 
-# Features analyzing space usage on disk compsize
-analyze_disk_space() {
-    read -p "Enter the path to analyze disk space: " path
+# Function to initiate the btrfs scrub process at the specified path
+run_btrfs_scrub() {
+    echo "Choose a path for 'btrfs scrub' command:"
+    read -p "Enter the path for 'btrfs scrub' command: " path
     if [ -n "$path" ]; then
-        sudo compsize "$path"
+        sudo btrfs scrub start "$path"
+        echo "Btrfs scrub initiated on $path"
     else
         echo "Please enter a valid path"
         main_menu
     fi
 }
 
-# Main menu
+# Function to check the status of the btrfs scrub process
+btrfs_scrub_status() {
+    echo "Checking btrfs scrub status"
+    sudo btrfs scrub status /
+}
+
+# Function to analyze disk space usage with compsize
+analyze_disk_space() {
+    echo "Choose a path for disk space analysis:"
+    read -p "Enter the path to analyze disk space: " path
+    if [ -n "$path" ]; then
+        sudo compsize "$path"
+    else
+        echo "Please enter a valid path"
+        analyze_disk_space
+    fi
+}
+
+# Function to display Btrfs file systems
+display_btrfs_filesystems() {
+    echo "Displaying Btrfs filesystems:"
+    df --type=btrfs -m
+}
+
+# Main menu function
 main_menu() {
     while true; do
         echo "Choose an option:"
         echo "1. Compress with Zstd"
-        echo "2. Analyze disk usage space"
-        echo "3. Exit"
+        echo "2. Run btrfs scrub"
+        echo "3. Check btrfs scrub status"
+        echo "4. Analyze disk space"
+        echo "5. Display Btrfs filesystems"
+        echo "6. Exit"
 
         read -p "Enter your choice: " choice
         case $choice in
             1) compress_with_zstd;;
-            2) analyze_disk_usage_space;;
-            3) exit;;
+            2) run_btrfs_scrub;;
+            3) btrfs_scrub_status;;
+            4) analyze_disk_space;;
+            5) display_btrfs_filesystems;;
+            6) exit;;
             *) echo "Invalid choice. Please select again.";;
         esac
     done
 }
 
-# Launch main menu
+# Start the main menu
 main_menu

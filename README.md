@@ -33,4 +33,4 @@ Go to cloned script
 
 Launch script
 
-```bash btrfs_simple.sh```
+```bash script.sh```

@@ -1,6 +1,7 @@
 # CLI Compress and check usage space partition on BTRFS
 Simple CLI script for analyze usage space and compress your btrfs partition
 
+![ksnip_20240217-122549](https://github.com/0FL01/btrfs_cli_compress/assets/117385366/cb3d6011-f342-4ac5-bfd7-f7aeaa935eb2)
 
 # Installing
 

@@ -2,7 +2,8 @@
 
 # Function for compressing the Btrfs filesystem using the Zstd algorithm with a progress message
 compress_with_zstd() {
-    echo "Choose a path to compress:"
+    echo "If u want to back, press Enter"
+    echo
     read -p "Enter the path to compress: " path
     if [ -n "$path" ]; then
         echo "Compression in progress, please wait..."
@@ -16,7 +17,8 @@ compress_with_zstd() {
 
 # Function to initiate the btrfs scrub process at the specified path
 run_btrfs_scrub() {
-    echo "Choose a path for 'btrfs scrub' command:"
+    echo "If u want to back, press Enter"
+    echo
     read -p "Enter the path for 'btrfs scrub' command: " path
     if [ -n "$path" ]; then
         sudo btrfs scrub start "$path"
@@ -35,7 +37,8 @@ btrfs_scrub_status() {
 
 # Function to analyze disk space usage with compsize
 analyze_disk_space() {
-    echo "Choose a path for disk space analysis:"
+    echo "If u want to back, press Enter"
+    echo
     read -p "Enter the path to analyze disk space: " path
     if [ -n "$path" ]; then
         sudo compsize "$path"
@@ -47,7 +50,8 @@ analyze_disk_space() {
 
 # Function to display Btrfs file systems
 display_btrfs_filesystems() {
-    echo "Displaying Btrfs filesystems:"
+    echo "Display partition with BTRFS filesystems:"
+    echo
     df --type=btrfs -m
 }
 
@@ -56,10 +60,10 @@ main_menu() {
     while true; do
         echo "Choose an option:"
         echo "1. Compress with Zstd"
-        echo "2. Run btrfs scrub"
+        echo "2. Run btrfs scrub (Clear)"
         echo "3. Check btrfs scrub status"
         echo "4. Analyze disk space"
-        echo "5. Display Btrfs filesystems"
+        echo "5. Display partition with BTRFS filesystems"
         echo "6. Exit"
 
         read -p "Enter your choice: " choice
